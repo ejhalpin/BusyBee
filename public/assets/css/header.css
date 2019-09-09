@@ -1,0 +1,35 @@
+header {
+  width: 100%;
+  position: fixed;
+  height: 55px;
+  background-color: black;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.brand-box {
+  display: flex;
+}
+.logo {
+  width: 45px;
+  height: 45px;
+  background-image: url("../img/bee-yellow.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-right: 5px;
+}
+
+.brand-text {
+  font-family: "Handlee", cursive;
+  color: #fafafa;
+  text-shadow: 1px 1px 1px #febc14, -1px 1px 1px #febc14, 1px -1px 1px #febc14, -1px -1px 1px #febc14;
+  font-size: 2rem;
+}

@@ -20,6 +20,7 @@ $(document).ready(function() {
   transitionScene.css("z-index", 20);
   mainScene.toggleClass("front").toggleClass("back");
 });
+
 //==================== Mouse Events ====================
 $(document).on("click", ".hex", function() {
   var desc = $(this).attr("data-desc");
@@ -50,22 +51,35 @@ $(document).on("touchend", ".hex", function(event) {
   //prevent mouse-like behavior
   event.preventDefault();
   var touches = event.originalEvent.changedTouches[0];
-  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger("click");
+  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger(
+    "click"
+  );
 });
 
 $(document).on("touchmove", function(event) {
   var touches = event.originalEvent.changedTouches[0];
-  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger("mouseover");
+  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger(
+    "mouseover"
+  );
 });
 
 $(document).on("touchstart", ".hex", function(event) {
   var touches = event.originalEvent.changedTouches[0];
-  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger("mouseover");
+  $(document.elementFromPoint(touches.clientX, touches.clientY)).trigger(
+    "mouseover"
+  );
 });
 
 //==================== Menu Show/Hide/Adjust Functions ====================
 function adjust() {
-  var hexagons = [$("#view-nav-1"), $("#view-nav-2"), $("#view-nav-3"), $("#view-nav-4"), $("#view-nav-5"), $("#view-nav-6")];
+  var hexagons = [
+    $("#view-nav-1"),
+    $("#view-nav-2"),
+    $("#view-nav-3"),
+    $("#view-nav-4"),
+    $("#view-nav-5"),
+    $("#view-nav-6")
+  ];
   var delX = screen.width / 2 + 70;
   var delY = (screen.width / 2 + 70) * Math.tan((30 * Math.PI) / 180);
   var delTop = screen.height / 2 + 80;
@@ -77,7 +91,14 @@ function adjust() {
     "-" + delX + "px, " + delY + "px",
     "-" + delX + "px, -" + delY + "px"
   ];
-  var transformIMP = ["0, -80px", "70px, -40px", "70px, 40px", "0, 80px", "-70px, 40px", "-70px, -40px"];
+  var transformIMP = [
+    "0, -80px",
+    "70px, -40px",
+    "70px, 40px",
+    "0, 80px",
+    "-70px, 40px",
+    "-70px, -40px"
+  ];
   for (var i = 0; i < 6; i++) {
     hexagons[i].css("transform", "translate(" + transformIMP[i] + ")");
     hexagons[i].css("transform", "translate(" + transformEXP[i] + ")");
@@ -86,7 +107,14 @@ function adjust() {
 
 function explode() {
   return new Promise(resolve => {
-    var hexagons = [$("#view-nav-1"), $("#view-nav-2"), $("#view-nav-3"), $("#view-nav-4"), $("#view-nav-5"), $("#view-nav-6")];
+    var hexagons = [
+      $("#view-nav-1"),
+      $("#view-nav-2"),
+      $("#view-nav-3"),
+      $("#view-nav-4"),
+      $("#view-nav-5"),
+      $("#view-nav-6")
+    ];
     var delX = screen.width / 2 + 70;
     var delY = (screen.width / 2 + 70) * Math.tan((30 * Math.PI) / 180);
     var delTop = screen.height / 2 + 80;
@@ -128,8 +156,22 @@ function implode() {
   mainScene.toggleClass("front").toggleClass("back");
   transitionScene.animate({ opacity: "0.8" }, 1000);
 
-  var hexagons = [$("#view-nav-1"), $("#view-nav-2"), $("#view-nav-3"), $("#view-nav-4"), $("#view-nav-5"), $("#view-nav-6")];
-  var transforms = ["0, -80px", "70px, -40px", "70px, 40px", "0, 80px", "-70px, 40px", "-70px, -40px"];
+  var hexagons = [
+    $("#view-nav-1"),
+    $("#view-nav-2"),
+    $("#view-nav-3"),
+    $("#view-nav-4"),
+    $("#view-nav-5"),
+    $("#view-nav-6")
+  ];
+  var transforms = [
+    "0, -80px",
+    "70px, -40px",
+    "70px, 40px",
+    "0, 80px",
+    "-70px, 40px",
+    "-70px, -40px"
+  ];
   $("#view-nav-center")
     .css("opacity", "1")
     .detach()

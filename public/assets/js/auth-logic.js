@@ -50,3 +50,5 @@ $("#signup-submit").on("click", function() {
     .appendTo(hidden);
   implode();
 });
+
+$(document).ready(() => {});
